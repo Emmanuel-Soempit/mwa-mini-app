@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+
+/**
+ * DESIGN SYSTEM - DO NOT EDIT UNLESS NECESSARY
+ * 
+ * This file contains the centralized design system for the mini app.
+ * These component classes establish the visual consistency across all components.
+ * 
+ * ⚠️  AI SHOULD NOT NORMALLY EDIT THIS FILE ⚠️
+ * 
+ * Instead of modifying these classes, AI should:
+ * 1. Use existing component classes (e.g., .btn, .card, .input)
+ * 2. Use Tailwind utilities for one-off styling
+ * 3. Create new React components rather than new CSS classes
+ * 4. Only edit this file for specific bug fixes or accessibility improvements
+ * 
+ * When AI needs to style something:
+ * ✅ Good: <button className="btn btn-primary">Click me</button>
+ * ✅ Good: <div className="bg-primary text-white px-4 py-2 rounded">Custom</div>
+ * ❌ Bad: Adding new CSS classes here for component-specific styling
+ * 
+ * This design system is intentionally minimal to prevent bloat and maintain consistency.
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Mental Wealth Academy Color Palette */
+:root {
+  /* Individual Colors */
+  --futuristic-floss: #ECECFF;
+  --futuristic-floss-dark: #E1E1FE;
+  --true-academy: #44E990;
+  --true-academy-dark: #16D8B8;
+  --faded-emerald: #952426;
+  --faded-emerald-dark: #341616;
+  --sybil-network: #952426;
+  --sybil-network-dark: #341616;
+  --orbital-space-blue: #952426;
+  --orbital-space-blue-dark: #341616;
+  --pale-blue: #952426;
+  --pale-blue-dark: #341616;
+  --light-gray: #222225;
+  --dark-gray: #15151B;
+  --button-gray: rgba(222, 237, 255, 0.7);
+  --button-dark-gray: rgba(52, 52, 52, 0.7);
+  --sea-urchin: #62BE8F;
+  /* Gradients */
+  --gradient-futuristic-floss: linear-gradient(90deg, #ECECFF 0%, #E1E1FE 100%);
+  --gradient-true-academy: linear-gradient(90deg, #44E990 0%, #16D8B8 100%);
+  --gradient-faded-emerald: linear-gradient(90deg, #952426 0%, #341616 100%);
+  --gradient-sybil-network: linear-gradient(90deg, #952426 0%, #341616 100%);
+  --gradient-orbital-space-blue: linear-gradient(90deg, #952426 0%, #341616 100%);
+  --gradient-pale-blue: linear-gradient(90deg, #952426 0%, #341616 100%);
+  --gradient-gray: linear-gradient(90deg, #222225 0%, #15151B 100%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
+}
+
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
+
+@layer components {
+  /* Global container styles for consistent layout */
+  .container {
+    @apply mx-auto max-w-md px-4;
+  }
+  
+  .container-wide {
+    @apply mx-auto max-w-lg px-4;
+  }
+  
+  .container-narrow {
+    @apply mx-auto max-w-sm px-4;
+  }
+
+  /* Global card styles */
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm;
+  }
+  
+  .card-primary {
+    @apply bg-primary/10 border-primary/20;
+  }
+
+  /* Global button styles */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-dark focus:ring-primary;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-gray-900 hover:bg-gray-200 focus:ring-gray-500 dark:bg-secondary-dark dark:text-gray-100 dark:hover:bg-gray-600;
+  }
+  
+  .btn-outline {
+    @apply border border-gray-300 bg-transparent hover:bg-gray-50 focus:ring-gray-500 dark:border-gray-600 dark:hover:bg-gray-800;
+  }
+
+  /* Global input styles */
+  .input {
+    @apply block w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder-gray-500 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100 dark:placeholder-gray-400;
+  }
+
+  /* Global loading spinner */
+  .spinner {
+    @apply animate-spin rounded-full border-2 border-gray-200 border-t-primary;
+  }
+  
+  .spinner-primary {
+    @apply animate-spin rounded-full border-2 border-gray-800 border-t-transparent;
+  }
+
+  /* Global focus styles */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+}
